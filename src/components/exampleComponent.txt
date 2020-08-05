@@ -1,0 +1,30 @@
+<template>
+  <div class="home text-center">
+    <h1>HOME</h1>
+  </div>
+</template>
+
+
+
+
+
+
+
+<script>
+// importation des components fils
+// @ is an alias to /src
+// import HelloWorld from "@/components/HelloWorld.vue";
+export default {
+  name: "splx-navbar",
+  components: {
+    // HelloWorld
+  }
+};
+</script>
+
+
+
+
+<style lang="stylus" scoped>
+
+</style>
