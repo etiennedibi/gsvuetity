@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Enregistrement from "../views/Enregistrement.vue";
 import Inventaire from "../views/inventaire.vue";
+// import productdetails from "../components/productdetails.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     name: "Inventaire",
     component: Inventaire
   }
+  // {
+  //   path: "/productdetails",
+  //   name: "productdetails",
+  //   component: productdetails
+  // }
 ];
 
 const router = new VueRouter({

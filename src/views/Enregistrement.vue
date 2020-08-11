@@ -19,6 +19,7 @@
                     <v-row>
                       <v-col cols="12" md="12" lg="12">
                         <v-text-field dense outlined ref="Productdenomination" v-model="Productdenomination" :rules="[() => !!Productdenomination || 'This field is required']" label="Denomination" hint="We'll never share your email with anyone else" persistent-hint required></v-text-field>
+                        <v-textarea label="One row" auto-grow outlined rows="2" row-height="15" v-model="Productdenomination" :rules="[() => !!Productdenomination || 'This field is required']" hint="We'll never share your email with anyone else" persistent-hint required></v-textarea>
                       </v-col>
                     </v-row>
                   </v-container>
@@ -164,7 +165,7 @@
           <v-spacer></v-spacer>
         </v-card-title>
         <v-data-table :headers="headers" :items="desserts" :search="search">
-          <template v-slot:item.calories="{ item }">
+          <template v-slot: item.calories="{ item }">
             <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip>
           </template>
         </v-data-table>

@@ -34,7 +34,7 @@ export default new Vuetify({
             /* Other Color */
             splxWhite: 'white',
             splxRed: '#f47e68',
-            splxlightBlue: '#57d3ff',
+            splxlightBlue: '#1bc5bd',
             splxlightYellow: '#f9d668',   
           },
         },
