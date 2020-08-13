@@ -11,28 +11,11 @@ export default new Vuex.Store({
         name: 'Frozen Yogurt',
         Quantity: 159,
         price: 2500,
-        archive:[
+        series:[
           {
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-          {
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
-          },
-          {
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
-          },
+            name: 'd1',
+            data: [31, 40, 28, 51, 42, 109, 100]
+          }
         ]
       },
       {

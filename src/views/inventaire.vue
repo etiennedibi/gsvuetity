@@ -13,7 +13,15 @@
     <v-row>
         <v-col md="8" lg="8">
             <div class="financialComptSate">
-
+              <div class="statesTitle">
+                <p>Meileur vente <br> <span>Donut</span></p>
+                <p>600 <span>ventes</span></p>
+              </div>
+              <div>
+                <apexchart type="area" height="100%" :options="chartOptions" :series="series"></apexchart>
+              </div>
+              <!-- <div id="chart">
+              </div> -->
             </div>
         </v-col>
         <v-col md="4" lg="4">
@@ -103,7 +111,13 @@
             <v-col md="6" class="col" >
               
               <div class="productState">
-
+                <div class="statesTitle">
+                  <p>Meileur vente <br> <span>Donut</span></p>
+                  <p>600 <span>ventes</span></p>
+                </div>
+                <div>
+                  <apexchart type="area" height="100%" :options="chartOptions" :series="editedItem.series"></apexchart>
+                </div>
               </div>
               <v-form>
                 <v-container fluid>
@@ -286,21 +300,43 @@ export default {
       /* FOR BACKGROUND */
       backgroundUrl,
 
+      /* FOR BEST PRODUCT STATS */
+
+      series: [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }],
+
+      chartOptions: {
+        chart: {
+          type: 'area',
+          sparkline: {
+            enabled: true,
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+      },
+
       /* FOR DATA ITERATOR */
       itemsPerPageArray: [4, 8, 12],
-       search: '',
-        filter: {},
-        sortDesc: false,
-        page: 1,
-        itemsPerPage: 8,
-        sortBy: 'name',
-        keys: [
-          'id',
-          'Name',
-          'Quantity',
-          'price',
-        ],
-        items: this.$store.state.products,
+      search: '',
+      filter: {},
+      sortDesc: false,
+      page: 1,
+      itemsPerPage: 8,
+      sortBy: 'name',
+      keys: [
+        'id',
+        'Name',
+        'Quantity',
+        'price',
+      ],
+      items: this.$store.state.products,
 
 
       /* FOR DIFFERENCIATION BETWEEN PRODUCT */
@@ -394,9 +430,36 @@ export default {
 
   .financialComptSate{
       height: 30vh;
-      border-radius: 10px;
+      border-radius: 5px;
       background: var(--splx-White);
   }
+  .statesTitle{
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    font-weight: bold;
+  }
+  .statesTitle p:first-child{
+    font-size: 15px;
+    color: var(--Default-Font-Color);
+  }
+  .statesTitle p:first-child span{
+    font-size: 17px;
+    color: var(--Title-color);
+  }
+  .statesTitle p:last-child {
+    color: var(--Important-color);
+    font-size: 25px;
+  }
+  .statesTitle p:last-child span{
+    font-size: 13px;
+  }
+  .financialComptSate div:last-child{
+    height: 22vh;
+  }
+
+
 
   .MakePreportLink{
       height: 30vh;

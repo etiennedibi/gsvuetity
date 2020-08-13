@@ -21,7 +21,7 @@
 
     <p class="splxtitle">Produits les plus vendus</p>
     <div class="splxgraph">
-      
+      <apexchart type="area" height="100%" :options="chartOptions" :series="series"></apexchart>
     </div>
 
 
@@ -74,8 +74,41 @@ export default {
   name: "Dashboard",
   components: {
     // HelloWorld
-  }
+  },
+
+  data: () => ({
+    /* FOR BEST PRODUCT STATS */
+      series: [{
+        name: 'series7',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      },
+      {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      },
+      {
+        name: 'series3',
+        data: [20, 50, 10, 83, 56, 22, 38]
+      }],
+
+      chartOptions: {
+        chart: {
+          type: 'area',
+          sparkline: {
+            enabled: true,
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+      },
+  }),
 };
+
+
 </script>
 
 
