@@ -14,7 +14,13 @@ export default new Vuex.Store({
         series:[
           {
             name: 'd1',
+            type:'area',
             data: [31, 40, 28, 51, 42, 109, 100]
+          },
+          {
+            name: 'd2',
+            type:'bar',
+            data: [22, 40, 18, 63, 50, 29, 110]
           }
         ]
       },
