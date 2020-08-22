@@ -163,10 +163,55 @@
           <v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer>
           <v-spacer></v-spacer><v-spacer></v-spacer><v-spacer></v-spacer>
           <v-spacer></v-spacer>
+          <v-dialog v-model="ItemActionDialog" max-width="500px">
+            <v-card>
+              <v-card-title>
+                <span class="headline">MODIFIER</span>
+              </v-card-title>
+  
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12" md="3" lg="3">
+                      <v-text-field dense outlined v-model="prix" ref="prix" type="number" :rules="[() => !!prix || 'This field is required']"  label="Prix" hint="du Stock" persistent-hint required></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6" lg="6">
+                      <v-select :items="items" dense label="Produit" v-model="product" ref="product" :rules="[() => !!product || 'This field is required']" outlined ></v-select>
+                    </v-col>
+                    <v-col cols="12" md="3" lg="3">
+                      <v-text-field dense outlined v-model="quantity" ref="quantity" type="number" :rules="[() => !!quantity || 'This field is required']"  label="Quantité" hint="Quantité" persistent-hint required></v-text-field>
+                    </v-col>
+                    <v-col cols="5" md="5" lg="5">
+                      <v-text-field dense outlined v-model="buyprice" ref="buyprice" type="number" :rules="[() => !!buyprice || 'This field is required']"  label="prix D'achat" hint="Unitaire*" persistent-hint required></v-text-field>
+                    </v-col>
+                    <v-col cols="5" md="5" lg="5">
+                      <v-text-field dense outlined v-model="sellprice" ref="sellprice" type="number" :rules="[() => !!sellprice || 'This field is required']" label="Prix de vente" hint="Unitaire*" persistent-hint required></v-text-field>
+                    </v-col >
+                    <v-col cols="2" md="2" lg="2">
+                      <v-text-field dense outlined v-model="sellprice" ref="sellprice" type="number" :rules="[() => !!sellprice || 'This field is required']" label="Prix de vente" hint="Unitaire*" persistent-hint required></v-text-field>
+                    </v-col >
+                  </v-row>
+                </v-container>
+              </v-card-text>
+  
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close">Annuler</v-btn>
+                <v-btn small rounded depressed color="Importantcolor" class="splxWhite--text">Modifier</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-card-title>
-        <v-data-table :headers="headers" :items="desserts" :search="search">
-          <template v-slot: item.calories="{ item }">
+        <v-data-table :headers="headers" :items="desserts" :search="search" @current-items="setFirst">
+          <template v-slot:item.calories="{ item }">
             <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip>
+          </template>
+          <template v-slot:item.actions="{ item }">
+            <v-btn v-if="item.isFirst" icon color="Importantcolor" @click="editItem(item)"><v-icon small> mdi-pencil </v-icon></v-btn>
+            <v-btn v-if="!item.isFirst" disabled icon color="Importantcolor" @click="editItem(item)"><v-icon small> mdi-pencil </v-icon></v-btn>
+            <v-btn v-if="item.isFirst" icon color="splxRed" @click="deleteItem(item)"><v-icon small> mdi-delete </v-icon></v-btn>
+            <v-btn v-if="!item.isFirst" disabled icon color="splxRed" @click="deleteItem(item)"><v-icon small> mdi-delete </v-icon></v-btn>
+            <!-- <v-icon small color="splxRed" @click="deleteItem(item)"> mdi-delete </v-icon> -->
           </template>
         </v-data-table>
       </v-card>
@@ -232,6 +277,7 @@ export default {
           { text: 'PRIX VENTE', value: 'carbs' },
           { text: 'FOURNISSEUR', value: 'protein' },
           { text: 'DATE', value: 'iron' },
+          { text: 'ACTIONS', value: 'actions', sortable: false },
         ],
         desserts: [
           {
@@ -315,14 +361,80 @@ export default {
             iron: '6%',
           },
         ],
+
+        ItemActionDialog: false,
+        editedIndex: -1,
+        editedItem: {
+          name: '',
+          calories: 0,
+          fat: 0,
+          carbs: 0,
+          protein: 0,
+        },
+        defaultItem: {
+          name: '',
+          calories: 0,
+          fat: 0,
+          carbs: 0,
+          protein: 0,
+        },
   }),
+
+
+  watch: {
+      dialog (val) {
+        val || this.close()
+      },
+    },
+
 
   methods: {
       getColor (calories) {
         if (calories > 400) return 'splxlightBlue'
-        else if (calories > 200) return 'splxRed'
+        else if (calories > 200) return 'Importantcolor'
         else return 'splxlightYellow'
       },
+
+
+      setFirst (currItems) {
+        // first check that actually exists values
+        if (currItems.length) {
+          // toggle all to false
+          currItems.forEach(x => x.isFirst = false)
+          // just set first to true
+          currItems[0].isFirst = true;
+        }
+      },
+
+
+      editItem (item) {
+        this.editedIndex = this.desserts.indexOf(item)
+        this.editedItem = Object.assign({}, item)
+        this.ItemActionDialog = true
+      },
+
+      deleteItem (item) {
+        const index = this.desserts.indexOf(item)
+        confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+      },
+
+      close () {
+        this.ItemActionDialog = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+
+      save () {
+        if (this.editedIndex > -1) {
+          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+        } else {
+          this.desserts.push(this.editedItem)
+        }
+        this.close()
+      },
+
     },
 
 

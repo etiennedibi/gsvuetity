@@ -9,8 +9,7 @@
             <div class="othersTabs">
                 <router-link :to="{name: 'Dashboard'}"><div class="tab"><v-icon class="TabI">format_align_left</v-icon><p>Dashboard</p></div></router-link>
                 <router-link :to="{name: 'Inventaire'}"><div class="tab"><v-icon class="TabI">assignment</v-icon> <p>Inventaire</p></div></router-link>
-                <!-- <a href=""><div class="tab"><v-icon class="TabI">store</v-icon> <p>Stocks</p></div></a>
-                <a href=""><div class="tab"><v-icon class="TabI">local_offer</v-icon> <p>Evaluation</p></div></a> -->
+                <router-link :to="{name: 'fournisseur'}"><div class="tab"><v-icon class="TabI">local_shipping</v-icon> <p>fournisseur</p></div></router-link>
                 <router-link :to="{name: 'Enregistrement'}"><div class="tab"><v-icon class="TabI">add_shopping_cart</v-icon> <p>Enregistrement</p></div></router-link>
             </div>
             <div class="mailTabs">

@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Enregistrement from "../views/Enregistrement.vue";
 import Inventaire from "../views/inventaire.vue";
-// import productdetails from "../components/productdetails.vue";
+import fournisseur from "../views/fournisseur.vue";
 
 Vue.use(VueRouter);
 
@@ -22,12 +22,12 @@ const routes = [
     path: "/inventaire",
     name: "Inventaire",
     component: Inventaire
+  },
+  {
+    path: "/fournisseur",
+    name: "fournisseur",
+    component: fournisseur
   }
-  // {
-  //   path: "/productdetails",
-  //   name: "productdetails",
-  //   component: productdetails
-  // }
 ];
 
 const router = new VueRouter({

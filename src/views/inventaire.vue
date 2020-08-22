@@ -1,6 +1,6 @@
 <template>
 
-<div class="splxbodyWrapper">
+<div class="splxbodyWrapper page">
   
   <!-- ******************* -->
   <!-- HEADER INFORMATION -->
@@ -69,113 +69,6 @@
             <v-toolbar-title>{{ editedItem.name }}</v-toolbar-title>
           </v-toolbar>            
 
-          <!-- <v-card-text>
-            <v-container mt-5 fluid class="modalcontainer">
-              <v-row no no-gutters>
-                <v-col sm="12" md="12" lg="12" class="col" ></v-col>
-
-                <v-col md="3" class="modalleftbox" >
-                  <div class="productprice">
-                      <p class="titleStyle2">Prix de vente<v-icon class="titleStyle2Icone">local_offer</v-icon></p>
-                      <v-container>
-                        <v-row no-gutters class="justify-space-around">
-                          <v-col md="6">
-                            <div class="totalSellPrice">
-                              <p>1000000 <br><span style="font-size:10px">frCFA</span><br><span>stock</span></p>
-                            </div>
-                          </v-col>
-                          <v-col md="5">
-                            <div class="totalSellPrice">
-                              <p>{{ editedItem.price }} <br><span style="font-size:10px">frCFA</span><br><span>unitaire</span></p>
-                            </div>
-                          </v-col>
-                        </v-row>
-                      </v-container>
-                  </div>
-                  <div class="productprice">
-                      <p class="titleStyle2">Quantité<v-icon class="titleStyle2Icone">line_style</v-icon></p>
-                      <v-container>
-                        <v-row no-gutters class="justify-space-around">
-                          <v-col md="6">
-                            <div class="Quantity">
-                              <p>1000 <br><span>debut du mois</span></p>
-                            </div>
-                          </v-col>
-                          <v-col md="5">
-                            <div class="Quantity">
-                              <p>{{ editedItem.Quantity }} <br><span>aujourd'hui</span></p>
-                            </div>
-                          </v-col>
-                        </v-row>
-                      </v-container>
-                  </div>
-                </v-col>
-
-
-                <v-col md="6" class="col" >
-                  
-                  <div class="productState">
-                    <div class="statesTitle">
-                      <p>Meileur vente <br> <span>Donut</span></p>
-                      <p>600 <span>ventes</span></p>
-                    </div>
-                    <div>
-                      <apexchart type="area" height="100%" :options="chartOptions" :series="editedItem.series"></apexchart>
-                    </div>
-                  </div>
-                  <v-form>
-                    <v-container fluid>
-                      <v-row>
-                        <v-col cols="12" md="12" lg="12">
-                          <v-textarea label="One row" auto-grow outlined rows="8" row-height="12" v-model="Productdenomination" :rules="[() => !!Productdenomination || 'This field is required']" hint="We'll never share your email with anyone else" persistent-hint required></v-textarea>
-                        </v-col>
-                        <v-col cols="12" md="6" lg="6">
-                          <v-text-field dense outlined v-model="productName" ref="productName" type="text" :rules="[() => !!productName || 'This field is required']"  label="Nouvelle denomination" hint="nouvelle denomination" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12" md="6" lg="6">
-                          <v-text-field dense outlined v-model="sellprice" ref="sellprice" type="number" :rules="[() => !!sellprice || 'This field is required']" label="Prix de vente" hint="Unitaire*" persistent-hint required></v-text-field>
-                        </v-col >
-                        <v-col cols="12" md="6" lg="6" align-self-center>
-                        <v-btn large rounded depressed color="Importantcolor" class="splxWhite--text"><v-icon left color="splxlightYellow">add_shopping_cart</v-icon> Ajouter</v-btn>
-                        </v-col >
-                      </v-row>
-                    </v-container>
-                  </v-form>
-
-
-
-                </v-col>
-
-
-
-
-
-                <v-col md="3" class="col" >
-                  <div class="priceEvaluation">
-                    <p>Evaluation du prix du produit</p>
-                    <p>
-                      Utiliser la methode CMUP pour evaluez le prix unitaire du produit en fonction de sa quantité en stock,
-                      et de sa quantité dans le prochain stock.
-                    </p>
-
-                    <v-form>
-                      <p class="priceEstimated">15000 <span>frCFA</span></p>
-                      <v-container>
-                        <v-row>
-                          <v-col cols="12" md="12" lg="12">
-                            <v-text-field dense outlined v-model="quantite" ref="quantite" type="number" :rules="[() => !!quantite || 'This field is required']"  label="Quantité" hint="Q du produit dan le nouveau stock" persistent-hint required></v-text-field>
-                          </v-col>
-                          <v-col cols="12" md="12" lg="12">
-                            <v-text-field dense outlined v-model="prixUnitaire" ref="prixUnitaire" type="number" :rules="[() => !!prixUnitaire || 'This field is required']"  label="Prix unitaire" required></v-text-field>
-                          </v-col>
-                        </v-row>
-                      </v-container>
-                    </v-form>
-                  </div>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text> -->
 
           <v-card-text>
             <v-container>
@@ -772,86 +665,6 @@ export default {
 .titleStyle2{
   margin-left: 15px;
 }
-
-/* .modalcontainer{
-background: #613dea21;
-}
-
-.productState{
-   height: 30vh;
-   border-radius: 10px;
-   margin: 10px !important;
-   background: var(--splx-White);
- }
-
-  .totalSellPrice{
-   height: 100px;
-   border-radius: 10px;
-   background: var(--splx-lightBlue);
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
- }
- .totalSellPrice > p{
-   font-weight: bold;
-   color: var(--splx-White);
-   text-align: center;
- }
-
- .totalSellPrice > p span{
-   font-size: 12px;
-   color: var(--Title-color);
- }
-
-
-
- .Quantity{
-   height: 100px;
-   border-radius: 10px;
-   padding-left: 1px;
-   background: var(--splx-lightBlue);
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   text-align: center;
- }
- .Quantity > p:first-child{
-   font-weight: bold;
-   color: var(--splx-White);
-   font-size: 20px;
- }
- .Quantity span{
-   font-size: 10px;
-   color: var(--Title-color);
- }
-
-
-
-.priceEvaluation{
- padding: 25px;
- height: 100%;
- background: var(--Title-color);
- border-radius: 10px;
-}
-.priceEvaluation > p:first-child{
- font-weight: bold;
- font-size: 19px;
- color: var(--splx-White);
-}
-.priceEvaluation > p:nth-child(2){
- font-size: 14px;
- color: var(--Default-Font-Color);
-}
-
-
-.priceEstimated{
- text-align: center;
- font-size: 19px;
- font-weight: bold;
- color: var(--splx-White);
- text-decoration: dashed underline overline;
- text-decoration-color: var(--splx-Red);
-} */
 
 
 

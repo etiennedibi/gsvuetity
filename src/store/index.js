@@ -22,6 +22,10 @@ export default new Vuex.Store({
             type:'bar',
             data: [22, 40, 18, 63, 50, 29, 110]
           }
+        ],
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
         ]
       },
       {
@@ -29,34 +33,19 @@ export default new Vuex.Store({
         name: 'Ice cream sandwich',
         Quantity: 237,
         price: 1500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd3',
         name: 'Eclair',
         Quantity: 262,
         price: 25000,
-        archive:[
-          {
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-          {
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
-          },
-          {
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
-          },
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
         ]
       },
       {
@@ -64,42 +53,70 @@ export default new Vuex.Store({
         name: 'Cupcake',
         Quantity: 305,
         price: 18500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd5',
         name: 'Gingerbread',
         Quantity: 356,
         price: 9500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd6',
         name: 'Jelly bean',
         Quantity: 375,
         price: 10500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd7',
         name: 'Lollipop',
         Quantity: 392,
         price: 17500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd8',
         name: 'Honeycomb',
         Quantity: 408,
         price: 2500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd9',
         name: 'Donut',
         Quantity: 452,
         price: 3000,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
       {
         id: 'd10',
         name: 'KitKat',
         Quantity: 518,
         price: 5500,
+        save:[
+          { product: 'donus', quantity:40, price:30000 },
+          { product: 'Yahourt Vigor', quantity:150, price:750000 }
+        ]
       },
     ],
   },
